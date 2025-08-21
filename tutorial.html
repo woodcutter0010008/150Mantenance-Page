@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>How to Customize Maintenance Templates</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+	<style>
+		body{margin:0;font-family:Inter,system-ui,Arial;color:#0f172a;background:#f6f7fb}
+		.header{background:#0f172a;color:#fff;padding:20px}
+		.container{max-width:900px;margin:0 auto;padding:24px}
+		.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px 18px;margin:14px 0}
+		code,pre{background:#0f172a;color:#e2e8f0;padding:2px 6px;border-radius:6px}
+		ol,ul{padding-left:20px}
+		@media(max-width:560px){.container{padding:16px}}
+	</style>
+</head>
+<body>
+	<header class="header"><h1 style="margin:0">Customize Your Maintenance Pages</h1></header>
+	<main class="container">
+		<p>Each template folder contains <code>index.html</code>, <code>styles.css</code>, <code>script.js</code>, <code>logo.svg</code>, and <code>favicon.svg</code>. All are pure HTML/CSS/JS, no frameworks.</p>
+		<div class="card">
+			<h2>Change the Logo</h2>
+			<ol>
+				<li>Replace <code>logo.svg</code> with your own SVG, or edit the file directly.</li>
+				<li>Keep the width/height reasonable (e.g., 140×40). The nav will scale automatically.</li>
+			</ol>
+		</div>
+		<div class="card">
+			<h2>Update the Favicon</h2>
+			<ol>
+				<li>Replace <code>favicon.svg</code> in the same folder.</li>
+				<li>Favicons are referenced in <code>index.html</code> with <code>&lt;link rel="icon" type="image/svg+xml" href="favicon.svg"&gt;</code>.</li>
+			</ol>
+		</div>
+		<div class="card">
+			<h2>Change the Countdown Target</h2>
+			<ol>
+				<li>Open <code>index.html</code>.</li>
+				<li>Find the script that sets <code>window.MAINTENANCE_DEADLINE</code>.</li>
+				<li>Set it to an ISO date, e.g., <code>2025-12-31T23:59:59Z</code>.</li>
+			</ol>
+			<p>Alternatively, in <code>script.js</code> replace how <code>target</code> is computed.</p>
+		</div>
+		<div class="card">
+			<h2>Reset the Countdown</h2>
+			<p>Set <code>window.MAINTENANCE_DEADLINE</code> to a future date/time. If the timer reaches zero, it will stop at 00:00:00:00.</p>
+		</div>
+		<div class="card">
+			<h2>Change Colors and Background</h2>
+			<p>Edit CSS variables at the top of <code>styles.css</code>:</p>
+			<pre>:root {
+  --color-primary: #7C3AED;
+  --color-secondary: #06B6D4;
+  --color-accent: #F59E0B;
+  --bg-gradient: linear-gradient(135deg,#0F172A,#1E293B);
+}</pre>
+		</div>
+		<div class="card">
+			<h2>Change Title, Paragraphs, Icons, Elements</h2>
+			<p>Open <code>index.html</code> and update the markup: the title is inside <code>&lt;h1 class="title"&gt;</code>, the paragraph uses <code>.lead</code>, and features are a list inside <code>#overview</code>. Icons use CDN classes (Font Awesome / Boxicons / Bootstrap Icons).</p>
+		</div>
+		<div class="card">
+			<h2>Background Animations</h2>
+			<p>Orbs are controlled by <code>.orb--1</code> and <code>.orb--2</code>. Small floating particles are created in <code>script.js</code>. Adjust counts, sizes, and speeds to your taste.</p>
+		</div>
+		<div class="card">
+			<h2>Mobile Menu</h2>
+			<p>The hamburger toggles the <code>.menu__list</code>. It is fully keyboard-accessible.</p>
+		</div>
+	</main>
+</body>
+</html>
