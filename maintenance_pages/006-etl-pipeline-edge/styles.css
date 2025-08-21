@@ -1,14 +1,14 @@
 :root {
-	--color-primary: #F43F5E;
-	--color-secondary: #8B5CF6;
-	--color-accent: #10B981;
-	--bg-gradient: linear-gradient(135deg,#0A0A0F,#12121B);
+	--color-primary: #3B82F6;
+	--color-secondary: #22C55E;
+	--color-accent: #F43F5E;
+	--bg-gradient: linear-gradient(135deg,#0E1117,#111827);
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
 	margin: 0;
-	font-family: 'Urbanist', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+	font-family: 'Kanit', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 	color: #e5e7eb;
 	background: var(--bg-gradient);
 	background-attachment: fixed;
