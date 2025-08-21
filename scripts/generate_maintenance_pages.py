@@ -5,6 +5,7 @@ import textwrap
 import datetime
 import json
 import hashlib
+import re
 
 BASE_DIR = "/workspace"
 OUTPUT_DIR = os.path.join(BASE_DIR, "maintenance_pages")
@@ -1352,7 +1353,43 @@ def build_unique_template(ctx: dict, salt: int):
 
 	js = "(function(){" + "".join(js_parts) + "})();"
 
+	# Enforce per-template unique class names by suffixing with -uid
+	html = uniquify_html_classes(html, uid)
+	css = uniquify_css_classes(css, uid)
+	js = js.replace(".burger", f".burger-{uid}").replace(".menu'", f".menu-{uid}'").replace(".drawer-btn", f".drawer-btn-{uid}")
+
 	return html, css, js
+
+
+# Helpers to enforce per-template unique class names
+# Suffix all custom classes with -<uid> while preserving third-party icon classes
+CLASS_ICON_PREFIXES = ("fa", "bi", "bx")
+
+def uniquify_html_classes(html: str, uid: str) -> str:
+	def repl(m):
+		classes = m.group(1)
+		tokens = []
+		for tok in classes.split():
+			if tok.startswith(CLASS_ICON_PREFIXES) or tok.endswith(f"-{uid}"):
+				tokens.append(tok)
+			else:
+				tokens.append(f"{tok}-{uid}")
+		return 'class="' + ' '.join(tokens) + '"'
+	return re.sub(r'class="([^"]+)"', repl, html)
+
+
+def uniquify_css_classes(css: str, uid: str) -> str:
+	# Append -uid to our authored class selectors when not yet suffixed
+	roots = [
+		'container','btn','primary','ghost','top','split','center','drawer','sidebar','bottom','links','burger','menu','drawer-btn','drawer-panel','bottombar',
+		'hero','left','right','fullscreen','title','tag','lead','art','a','b','bg','waves','mesh','blobs','noise','stripes-bg','triangles','artbox',
+		'overview','feat','list','cards','steps','media','changelog','status','contact','footer','simple','columns','social','mini','flipclock','fc','rings','bars','bar','chips','badges','digital','stripes','labels'
+	]
+	for r in roots:
+		css = re.sub(fr'\.{re.escape(r)}(?!-[a-z0-9]{{1,8}})', f'.{r}-{uid}', css)
+	# Also fix element combinations like .nav-<uid> .container to .nav-<uid> .container-<uid>
+	css = re.sub(fr'(\s)\.container(\b)', fr'\1.container-{uid}\2', css)
+	return css
 
 
 def main():
