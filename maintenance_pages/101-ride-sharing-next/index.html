@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Ride Sharing Next — Maintenance</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700;800&display=swap" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+	<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+	<link rel="stylesheet" href="styles.css?v=14542d6a"/>
+	<script>
+		window.MAINTENANCE_DEADLINE = "2025-09-11T07:33:39Z";
+	</script>
+</head>
+<body class="layout-g">
+	<header class="nav">
+		<div class="nav__inner container">
+			<a class="brand" href="#">
+				<img src="logo.svg" alt="Ride Sharing Next logo" width="140" height="40" />
+			</a>
+			<nav class="menu" aria-label="Primary">
+				<button class="menu__toggle" aria-expanded="false" aria-controls="menu-list">
+					<span class="menu__bar"></span><span class="menu__bar"></span><span class="menu__bar"></span>
+					<span class="sr-only">Toggle menu</span>
+				</button>
+				<ul id="menu-list" class="menu__list">
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#changelog">Changelog</a></li>
+					<li><a href="#status">Status</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero container">
+			<div class="hero__content">
+				<h1 class="title">Ride Sharing Next <span class="tag">Maintenance</span></h1>
+				<p class="lead">Upgrading our core systems for reliability and speed. Expect Real-time insights at your fingertips tailored for ride sharing next.</p>
+				<div class="timer" role="timer" aria-live="polite">
+					<div class="time"><span id="d">00</span><label>Days</label></div>
+					<div class="time"><span id="h">00</span><label>Hours</label></div>
+					<div class="time"><span id="m">00</span><label>Minutes</label></div>
+					<div class="time"><span id="s">00</span><label>Seconds</label></div>
+				</div>
+				<div class="actions">
+					<a class="btn primary" href="#status"><i class="fa fa-signal"></i> System Status</a>
+					<a class="btn ghost" href="#changelog"><i class="fa fa-scroll"></i> Changelog</a>
+				</div>
+			</div>
+			<div class="hero__art" aria-hidden="true">
+				<div class="orb orb--1"></div>
+				<div class="orb orb--2"></div>
+				<div id="floaters"></div>
+			</div>
+		</section>
+
+		<section id="overview" class="features container">
+			<h2>What we're improving</h2>
+			<ul class="feature-list">
+				<li><i class="fa fa-cloud"></i> Enhanced reliability and uptime guarantees</li>
+				<li><i class="fa fa-rocket"></i> Faster page loads and buttery-smooth transitions</li>
+				<li><i class="fa fa-gauge-high"></i> Stronger security and privacy controls</li>
+				<li><i class="fa fa-heart"></i> Refined design with accessible components</li>
+			</ul>
+		</section>
+
+		<section id="changelog" class="changelog container">
+			<h2>Recent highlights</h2>
+			<div class="cards">
+				<article class="card">
+					<h3>Performance Pass</h3>
+					<p>Database indices and query plans tuned. Asset pipeline optimized for ride sharing next workloads.</p>
+				</article>
+				<article class="card">
+					<h3>Security Sweep</h3>
+					<p>Zero-trust defaults, rotated keys, and expanded observability across critical paths.</p>
+				</article>
+				<article class="card">
+					<h3>Design Refresh</h3>
+					<p>New typography system with Kanit. Improved contrast and motion preferences.</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="status" class="status container">
+			<h2>Planned completion</h2>
+			<p>Our current window targets the countdown above. Timelines can shift as we validate quality.</p>
+		</section>
+
+		<section id="contact" class="contact container">
+			<h2>Stay in the loop</h2>
+			<div class="cta-row">
+				<a class="btn primary" href="#"><i class="fa fa-bell"></i> Get status alerts</a>
+				<a class="btn ghost" href="#"><i class="fa fa-envelope"></i> Follow on X</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__inner">
+			<p>© 2025 Ride Sharing Next. All rights reserved.</p>
+			<ul class="social">
+				<li><a href="#" aria-label="Twitter"><i class="fa fa-brands fa-x-twitter"></i></a></li>
+				<li><a href="#" aria-label="GitHub"><i class="fa fa-brands fa-github"></i></a></li>
+				<li><a href="#" aria-label="Discord"><i class="fa fa-brands fa-discord"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<script src="script.js?v=14542d6a"></script>
+</body>
+</html>
